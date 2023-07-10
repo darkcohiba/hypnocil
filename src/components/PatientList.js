@@ -1,6 +1,15 @@
 import React from "react"
+import Patient from "./Patient";
 
-function PatientList() {
+function PatientList({patients}) {
+  const patientRows = patients.map(patient =>
+    <Patient 
+      key={patient.id}
+      patient={patient}
+    />
+    )
+  
+
     return(
       <table>
           <tbody>
@@ -10,7 +19,7 @@ function PatientList() {
                 <th>Patient Name</th>
                 <th>Noted Side Effects</th>
             </tr>
-            {/* Create <Patient/> components here. */}
+            {patientRows}
           </tbody>
       </table>  
     );
